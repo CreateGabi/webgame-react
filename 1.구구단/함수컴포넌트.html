@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>웹게임</title>
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!--<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>-->
+<!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>-->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+  'use strict';
+
+  
+  const LikeButton = () => {
+    // this 쓸 일이 없다
+    const [liked, setLiked] = React.useState(false);  // 구조분해
+    // const [news, setNews] = React.useState(['뉴스1', '뉴스2', '뉴스3', '뉴스4', '뉴스5'])
+    // const [category, setCagtegory] = React.useState(['스포츠', '연애', '경제', '시사', '정치'])
+    // const result = React.useState(false);
+    // const liked = result[0];
+    // const setLiked = result[1];
+
+    // if (category === '뉴스') {
+    //   return '뉴스화면';
+    // }
+    if (liked) {
+      return 'You liked this.';
+    }
+    return (
+      <button onClick={() => { setLiked(true); }}>Like</button>
+    );
+  }
+
+
+</script>
+<script type="text/babel">
+  // ReactDOM.render(<LikeButton />, document.querySelector('#root'));  // 17버전
+  ReactDOM.createRoot(document.querySelector('#root')).render(<LikeButton />);  //18버전
+</script>
+</body>
+</html>

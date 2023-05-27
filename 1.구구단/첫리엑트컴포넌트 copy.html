@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>웹게임</title>
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!--<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>-->
+<!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>-->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+  'use strict';
+
+
+  class LikeButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {liked: false};  // 화면에 달라질 부분이 state
+    }
+    render() {
+        if (this.state.liked) {
+            return 'You liked this.';
+        }
+
+        // return React.createElement('button', {onClick: () => this.setState({liked: true})}, 'Like');
+        // JSX이 더 보기 편함
+        return (
+          <button onClick={() => {
+            // this.state.liked = true;  // 객체를 함부로 바꾸지 마라(불변성)
+            this.setState({liked: true});
+          }}>
+            Like
+          </button>
+        );
+    }
+  }  // 잘 안씀 1% ErrorBoundary
+//   // 이렇게 더 많이 씀
+//   const LikeButton = () => {};
+//   function LikeButton() {}
+
+
+</script>
+<script type="text/babel">
+  // ReactDOM.render(<LikeButton />, document.querySelector('#root'));  // 17버전
+  ReactDOM.createRoot(document.querySelector('#root')).render(<LikeButton />);  //18버전
+</script>
+</body>
+</html>
